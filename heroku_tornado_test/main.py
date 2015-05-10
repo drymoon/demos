@@ -5,13 +5,14 @@ import tornado.web
      
 class MainHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("index.html") 
+	#	self.render("index.html")
+		self.write("Tornado") 
 def main():
     	application = tornado.web.Application([
     	(r"/", MainHandler),
     	])
     	http_server = tornado.httpserver.HTTPServer(application)
-    	port = int(os.environ.get("PORT", 5001))
+    	port = int(os.environ.get("PORT", 5002))
     	http_server.listen(port)
     	tornado.ioloop.IOLoop.instance().start()
      
